@@ -21,13 +21,10 @@ export const BasicModal = ({ data }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   console.log(data);
-  for (let i = 0; i < data.length; i++) {
-    console.log(data[i]);
-  }
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>Open your random quote</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -37,11 +34,13 @@ export const BasicModal = ({ data }) => {
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             {data.map((i, ind) => (
-              <span key={ind}>{data[i]}</span>
+              <div key={ind}>{i.name}</div>
             ))}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            {data.map((j, ind2) => (
+              <div key={ind2}>{j.quote}</div>
+            ))}
           </Typography>
         </Box>
       </Modal>
