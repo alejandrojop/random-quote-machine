@@ -34,7 +34,7 @@ export const BasicModal = ({ data }) => {
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             {data.map((i, ind) => (
-              <div key={ind}>{i.name}</div>
+              <div key={ind}>{i.autor}</div>
             ))}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>

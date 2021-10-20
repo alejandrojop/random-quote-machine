@@ -21,6 +21,7 @@ const api = [
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [quotes, setQuotes] = useState([]);
+  const [newQuote, setNewQuote] = useState(true);
   // useEffect(() => {
   //   fetch(`https://pokeapi.co/api/v2/pokemon/15/`)
   //     .then((response) => response.json())
@@ -40,13 +41,19 @@ function App() {
     fetchQuotes();
   }, []);
 
+  const handleChange = () => {
+    return setNewQuote(!newQuote);
+  };
+
   return (
     <div id="quote-box" className="App">
       <ReactFCCtest />
-      <div id="text"></div>
       <div id="author"></div>
       <BasicModal data={quotes} />
-      <button id="new-quote">Random</button>
+      <button id="new-quote" onClick={handleChange}>
+        Random
+      </button>
+      <div id="text">{newQuote ? <h3>here!</h3> : null}</div>
     </div>
   );
 }
